@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Delete Profile {% endblock %}
+
+{% block main %}
+<div class="card" style="width: 18rem;margin-left:200px;margin-top:50px;">
+  <img src="/static/img/warning.png" class="card-img-top" alt="warning">
+  <div class="card-body">
+    <h5 class="card-title">Are you sure you want to delete your profile?</h5>
+    <p class="card-text">If you click delete, your profile will be permanently erased.</p>
+    <div class="row">
+    <div class="col-sm">
+      <a href="/profile/delete/confirmed" class="btn btn-danger btn-lg">Delete Profile</a>
+    </div>
+    <div class="col-sm">
+      <a class="btn btn-secondary" href="{{ url_for('profile') }}" role="button">Go Back</a>
+    </div>
+  </div>
+
+  </div>
+</div>
+{% endblock %}

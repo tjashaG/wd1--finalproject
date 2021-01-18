@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block main %}
+
+
+
+<form class="container" method="post" action="/profile/edit">
+  <h3>Choose what to edit</h3>
+  <div class="mb-3">
+    <p class="text-muted"><em>Current email: {{ user.email }}</em></p>
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <p class="text-muted"><em>Current username: {{user.username }}</em></p>
+    <label for="username" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword" class="form-label">New password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Repeat new password</label>
+    <input type="password" name="password-again" class="form-control" id="exampleInputPassword2">
+  </div>
+   <br>
+<div class="form-floating">
+  <input type="text" class="form-control" id="floatingcity" name="city" placeholder="my city">
+  <label for="floatingcity">my hometown</label>
+</div>
+  <br>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <button type="submit" class="btn btn-primary">Update profile</button>
+    </div>
+    <div class="col-sm">
+      <a class="btn btn-secondary" href="{{ url_for('profile') }}" role="button">Go Back to Profile</a>
+    </div>
+  </div>
+  </div>
+</form>
+
+{% endblock %}

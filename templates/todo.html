@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %} TO-DO List {% endblock %}
+{% block main %}
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('profile') }}">My Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('game') }}">Game</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('messages') }}">Messages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('news_api') }}">Daily News API</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ url_for('to_do') }}">My TO-DO List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('sign_out') }}">Sign Out</a>
+  </li>
+</ul>
+<br>
+
+<div class="container">
+    <h3>Add TO-DO Task:</h3>
+    <br>
+    <form action="/todo" method="post">
+        <div class="mb-3">
+          <label for="desired-date">Due Date:</label>
+          <input type="date" name="due_date" id="desired-date">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Task</label>
+          <input type="text" name="task" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Task</button>
+    </form>
+    <br>
+</div>
+<hr>
+<div class="container">
+<h2>My TO-DO list:</h2>
+    <br>
+{% for todo in todos %}
+<div class="card">
+  <div class="card-body">
+      <p>Task: {{ todo.task }}</p>
+      <p>Due Date: {{ todo.due_date }}</p>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
+

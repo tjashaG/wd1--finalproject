@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block main %}
+
+<form class="container" action="/login" method="post">
+  <h3>Already a user? Please log in</h3>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="password" required>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h5>Click to Log in</h5>
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </div>
+    <div class="col-sm">
+      <h5>Not a user yet?</h5>
+      <a class="btn btn-secondary" href="{{ url_for('sign_up') }}" role="button">Go back to Signup</a>
+    </div>
+  </div>
+  </div>
+</form>
+
+{% endblock %}

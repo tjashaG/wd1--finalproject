@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Daily News {% endblock %}
+{% block main%}
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('profile') }}">My Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('game') }}">Game</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('messages') }}">Messages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ url_for('news_api') }}">Daily News API</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('to_do') }}">My TO-DO List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('sign_out') }}">Sign Out</a>
+  </li>
+</ul>
+<br>
+
+
+<h1 style="text-align:center;">Today's top stories</h1>
+
+<hr>
+<br>
+<div class="container">
+{% for title in article_titles %}
+<h5><a href="{{ title[1] }}">{{ title[0] }}</a></h5>
+<p><small class="muted-text">Author/s: {{ title[2] }}</small></p>
+    <p class="text-muted">Summary: <em>{{ title[3] }}</em></p>
+<img class="img-fluid" style="max-width:20%;" src="{{ title[4] }}" alt="{{ title[0] }}">
+    <hr>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} The guessing game! {% endblock title %}
+
+{% block main %}
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('profile') }}">My Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ url_for('game') }}">Game</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('messages') }}">Messages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('news_api') }}">Daily News API</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('to_do') }}">My TO-DO List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('sign_out') }}">Sign Out</a>
+  </li>
+</ul>
+<br>
+
+
+
+<div class="container">
+    <h2>Welcome to the guessing game</h2>
+    <form method="post" action="/game">
+      <div class="form-group">
+        <label for="guess">Guess the secret number between 1 and 100</label>
+          <br>
+        <input type="number" name="guess" class="form-control" id="guess" aria-describedby="emailHelp" autocomplete="off">
+      </div>
+        <br>
+         <button type="submit" class="btn btn-primary">Guess!</button>
+    </form>
+    </div>
+
+{% if guess == True %}
+<a class="btn btn-outline-primary btn-lg" role="button" href="/game">Play again!</a>
+{% endif%}
+
+{% endblock %}
