@@ -9,7 +9,7 @@ import time
 
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = "super-secret-key"
 db.create_all()
 
 @app.route("/", methods=["GET", "POST"])
